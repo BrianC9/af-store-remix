@@ -1,5 +1,6 @@
-import {Meta, Links} from '@remix-run/react'
-import styles from './styles/index.css'
+import {Meta, Links, Outlet} from '@remix-run/react'
+import styles from '~/styles/index.css'
+import Header from '~/components/header'
 export function meta(){
     return(
         {
@@ -37,7 +38,9 @@ export function links(){
 }
 export default function App(){
     return(
-        <Document><h1>Hello Remix World</h1></Document>
+        <Document>
+            <Outlet/>
+        </Document>
     )
 }
 function Document({children}){
@@ -48,6 +51,7 @@ function Document({children}){
                 <Links/>         
             </head>
             <body>
+                <Header/>
                 {children}
             </body>
         </html>
