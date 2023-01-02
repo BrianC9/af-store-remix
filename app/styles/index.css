@@ -92,6 +92,11 @@
   }
 
 }
-.header .navegation a:hover, .active{
+.header .navegation a:hover, .active .header{
   background-color: var(--primary);
+}
+/*** DISCLAIMER **/
+
+.disclaimer{
+  font-size: small;
 }
