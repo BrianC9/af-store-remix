@@ -1,0 +1,9 @@
+.sneakers-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+.sneaker{
+    border: 1px solid black;
+    
+}
