@@ -4,3 +4,8 @@ export default function AboutUs() {
     <div>AboutUs</div>
   )
 }
+export function meta(){
+  return{
+    title: 'About Us'
+  }
+}

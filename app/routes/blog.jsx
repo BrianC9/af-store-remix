@@ -4,3 +4,9 @@ export default function blog() {
     <div>blog</div>
   )
 }
+
+export function meta(){
+  return{
+    title: 'Blog'
+  }
+}

@@ -92,3 +92,6 @@
   }
 
 }
+.header .navegation a:hover, .active{
+  background-color: var(--primary);
+}
