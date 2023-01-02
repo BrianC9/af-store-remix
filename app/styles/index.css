@@ -99,4 +99,31 @@
 
 .disclaimer{
   font-size: small;
+  text-align: center;
+}
+
+/*** FOOTER **/
+.footer{
+  background-color: var(--black);
+  padding: 2rem 0;
+  color: var(--white);
+}
+.footer .navegation{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.footer .navegation a{
+  color: var(--primary);
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+@media(min-width:768px){
+  .footer .navegation{
+    flex-direction: row;
+  }
 }
