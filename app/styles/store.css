@@ -1,9 +1,47 @@
 .sneakers-grid{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 4rem;
+}
+@media (min-width: 600px){
+    .sneakers-grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width: 992px){
+    .sneakers-grid{
+        grid-template-columns: repeat(3,1fr);
+    }
 }
 .sneaker{
-    border: 1px solid black;
-    
+    padding: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    }
+.sneaker .content h3{
+ color:var(--primary);
+ font-size:2.5rem;
+ text-decoration: none;
+ 
+
+}
+
+.sneaker .description{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    font-size: 1.8rem;
+}
+.sneaker .price{
+    font-weight: 900;
+    font-size: 2.5rem;
+    margin: 0;
+}
+.sneaker .linkToProduct{
+    text-decoration: none;
+    color:var(--white);
+    background-color: var(--black);
+    display:block
 }
