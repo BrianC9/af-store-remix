@@ -17,12 +17,10 @@
 .sneaker{
     border-radius: 2rem;
     display: flex;
-  flex: 1 1 auto;
   flex-direction: column;
   padding: 1rem;
-  max-height: 100vh;
     }
-.sneaker .content h3{
+.sneaker .content h3, .details-sneaker h3{
  color:var(--primary);
  font-size:2.5rem;
  text-decoration: none;
@@ -39,12 +37,8 @@
     flex: 1 1 auto;
 
 }
-.sneaker .price{
-    font-weight: 900;
-    font-size: 2.5rem;
-    margin: 1rem 0;
-}
-.sneaker .linkToProduct{
+
+.linkToProduct, .linkToProduct{
     text-decoration: none;
     text-align: center;
     padding: 1rem;
@@ -52,7 +46,25 @@
     background-color: var(--black);
     display:block;
     transition: background-color .3s;
+   
 }
-.sneaker .linkToProduct:hover{
+.linkToProduct:hover{
     background-color: var(--primary);
+}
+/*** Dinamic Sneaker**/
+.details-sneaker .select{
+    display: flex;
+    gap:2rem;
+    margin: 2rem 0;
+}
+
+
+@media (min-width:768px){
+
+    .details-sneaker{
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 2rem;
+        align-items: center;
+    }
 }

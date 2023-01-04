@@ -8,7 +8,7 @@ export default function Sneaker({sneaker}) {
         <h3 className="sneakerTitle">{title}</h3>
         <Link to={`/sneakers/${url}`}><img src={image.data.attributes.formats.medium.url} alt={`${title} sneaker`} /></Link>
         <p className='description '>{description}</p>
-        <div className="price ">{price} €</div>
+        <div className="price-product ">{price} €</div>
         <Link to={`/sneakers/${url}`} className='linkToProduct'>Shop now</Link>
         </div>
     </div>
