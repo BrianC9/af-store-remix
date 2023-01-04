@@ -34,7 +34,9 @@
     color: var(--primary);
     margin: 5rem 0;
   }
-  
+  .main-container{
+    margin-bottom: 10rem;
+}
   /*** Header **/
 .header{
   background-image: linear-gradient(to right, rgb(0 0 0 /.8 ),rgb(0 0 0 /.6)), url(/img/header.jpg);

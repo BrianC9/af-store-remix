@@ -23,7 +23,7 @@ export function links(){
 
 export default function AboutUs() {
   return (
-    <main className="container aboutus">
+    <main className="container aboutus main-container">
       <h2 className="heading">About us</h2>
       <div className="content">
         <img src={headingImg} alt="Header" />

@@ -9,7 +9,8 @@ export async function loader(){
 }
 export function meta(){
   return{
-    title: 'AF Store'
+    title: 'AF Store',
+    description: 'Af Store - Our sneakers collection'
   }
 }
 export function links(){
@@ -24,10 +25,10 @@ export default function Store() {
   const sneakers = useLoaderData()
   console.log(sneakers);
   return (
-    <main className="container">
+    <main className="container main-container">
       <h2 className="heading">Our Collection</h2>
       {
-        sneakers.length &&(
+        sneakers?.length &&(
           <div className="sneakers-grid">
             {sneakers.map( sneaker => (
               <Sneaker key={sneaker.id} sneaker={sneaker}/>

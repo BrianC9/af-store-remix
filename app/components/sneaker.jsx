@@ -6,11 +6,11 @@ export default function Sneaker({sneaker}) {
     const {title,description,price,image,url} = sneaker.attributes
   return (
     <div className='sneaker'>
-        <div className="content">
+        <div className="content flexible">
         <h3 className="sneakerTitle">{title}</h3>
         <Link to={`/${url}`}><img src={image.data.attributes.formats.medium.url} alt={`${title} sneaker`} /></Link>
-        <p className='description'>{description}</p>
-        <div className="price">{price} €</div>
+        <p className='description '>{description}</p>
+        <div className="price ">{price} €</div>
         <Link to={`/${url}`} className='linkToProduct'>Shop now</Link>
         </div>
     </div>

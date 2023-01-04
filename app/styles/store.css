@@ -1,3 +1,4 @@
+
 .sneakers-grid{
     display: grid;
     grid-template-columns: 1fr;
@@ -14,16 +15,17 @@
     }
 }
 .sneaker{
-    padding: 2rem;
     border-radius: 2rem;
     display: flex;
-    flex-direction: column;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
     }
 .sneaker .content h3{
  color:var(--primary);
  font-size:2.5rem;
  text-decoration: none;
- 
+ font-weight: 900;
 
 }
 
@@ -33,15 +35,23 @@
     -webkit-line-clamp: 4;
     overflow: hidden;
     font-size: 1.8rem;
+    flex: 1 1 auto;
+
 }
 .sneaker .price{
     font-weight: 900;
     font-size: 2.5rem;
-    margin: 0;
+    margin: 1rem 0;
 }
 .sneaker .linkToProduct{
     text-decoration: none;
+    text-align: center;
+    padding: 1rem;
     color:var(--white);
     background-color: var(--black);
-    display:block
+    display:block;
+    transition: background-color .3s;
+}
+.sneaker .linkToProduct:hover{
+    background-color: var(--primary);
 }
