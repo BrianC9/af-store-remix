@@ -23,7 +23,6 @@ export function links(){
 }
 export default function Store() {
   const sneakers = useLoaderData()
-  console.log(sneakers);
   return (
     <main className="container main-container">
       <h2 className="heading">Our Collection</h2>
