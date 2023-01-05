@@ -3,13 +3,18 @@
     grid-template-columns: 1fr;
     gap:3rem
 }
-.date{
+ 
+
+.post .content h3{
+    margin:0;
+}
+.post .details{
     color: var(--primary);
     font-size: 1.5rem;
     font-weight: 700;
-}
-.post .content h3{
-    margin:0;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
 }
 
 .post .summaryPost{
