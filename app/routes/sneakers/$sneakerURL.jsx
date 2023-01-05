@@ -1,17 +1,27 @@
 import { useLoaderData } from "@remix-run/react" 
-import { useState } from "react"
 import { Link } from "react-router-dom"
 import { getSneakerByURL } from "~/models/sneakers.server"
 import styles from '~/styles/store.css'
 
 export async function loader({params}){
     const {sneakerURL} = params
-    console.log(sneakerURL) 
     const sneaker = await getSneakerByURL(sneakerURL)
-    return sneaker.data[0]
+    if (!sneaker || sneaker.data.length === 0){
+      throw new Response('',{
+        status:404,
+        statusText:'Sneaker not found'
+      })
+    }
+    return sneaker
  }
- export function meta(data){
-const {title,description} = data.data.attributes
+ export function meta({data}){
+  if(!data){
+    return{
+      title: 'Sneaker not found',
+      description: 'Sneakers on sale, model not found'
+    }
+  }  const {title} = data.data[0].attributes
+  
  return{
   title: `AF Store - ${title}`,
   description: `Sneaker on sale, model ${title}`
@@ -28,11 +38,10 @@ export function links(){
 
 }
 export default function Sneaker() {
-  const [size,setSize] =  useState(0)
     const sizes = [40,41,42,43,44,45,46]
     
     const sneaker = useLoaderData()
-    const {title,description,price,image} = sneaker.attributes
+    const {title,description,price,image} = sneaker.data[0].attributes
   return (
     <div className="container details-sneaker main-container">
         <div className="content">
@@ -42,7 +51,7 @@ export default function Sneaker() {
         <div className="select">
         <label htmlFor="size-sneaker">Choose a size</label>
         <select>
-          {sizes.map(size => (<option key={size} value={size}>{size}</option>))}
+          {sizes.map(sizeIt => (<option key={sizeIt} value={sizeIt}>{sizeIt}</option>))}
         </select>
         </div>
         <Link className="linkToProduct">Add to cart</Link>
