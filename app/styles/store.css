@@ -34,23 +34,10 @@
     -webkit-line-clamp: 4;
     overflow: hidden;
     font-size: 1.8rem;
-    flex: 1 1 auto;
 
 }
 
-.linkToProduct, .linkToProduct{
-    text-decoration: none;
-    text-align: center;
-    padding: 1rem;
-    color:var(--white);
-    background-color: var(--black);
-    display:block;
-    transition: background-color .3s;
-   
-}
-.linkToProduct:hover{
-    background-color: var(--primary);
-}
+
 /*** Dinamic Sneaker**/
 .details-sneaker .select{
     display: flex;

@@ -150,3 +150,19 @@
   color:var(--primary)
 
 }
+/*** Link to post and product **/
+.linkTo{
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  padding: .5rem 0;
+  color:var(--white);
+  background-color: var(--black);
+  display:block;
+  transition: background-color .3s;
+  font-size: 1.5rem;
+ 
+}
+.linkTo:hover{
+  background-color: var(--primary);
+}

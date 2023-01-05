@@ -38,7 +38,7 @@ export function links(){
 
 }
 export default function Sneaker() {
-    const sizes = [40,41,42,43,44,45,46]
+    const sizes = [37,40,41,42,43,44,45,46]
     
     const sneaker = useLoaderData()
     const {title,description,price,image} = sneaker.data[0].attributes
@@ -54,7 +54,7 @@ export default function Sneaker() {
           {sizes.map(sizeIt => (<option key={sizeIt} value={sizeIt}>{sizeIt}</option>))}
         </select>
         </div>
-        <Link className="linkToProduct">Add to cart</Link>
+        <Link className="linkTo">Add to cart</Link>
         </div>
         <img src={image.data.attributes.url}alt={`Sneaker ${title}`}/>
 

@@ -3,29 +3,32 @@
     grid-template-columns: 1fr;
     gap:3rem
 }
-.date, .time-read{
-    margin: 0;
+.date{
+    color: var(--primary);
     font-size: 1.5rem;
     font-weight: 700;
 }
 .post .content h3{
     margin:0;
-    color:var(--primary)
+}
+
+.post .summaryPost{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+
 }
 @media (min-width:768px) {
     
-    .container .blog{
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .container .post{
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    max-width: 40%;
-    }
-    .post img{
-        flex: 1 1 auto;
-
+    .blog{
+        grid-template-columns: repeat(2,1fr);
     }
 }
+@media (min-width:992px) {
+    
+    .blog{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+

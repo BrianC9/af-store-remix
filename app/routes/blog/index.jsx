@@ -20,7 +20,7 @@ export default function Blog() {
       </div>
     </main>
     )
-}
+} 
 export function links(){
   return [
     {

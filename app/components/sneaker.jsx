@@ -6,10 +6,10 @@ export default function Sneaker({sneaker}) {
     <div className='sneaker'>
         <div className="content">
         <h3 className="sneakerTitle">{title}</h3>
-        <Link to={`/sneakers/${url}`}><img src={image.data.attributes.formats.medium.url} alt={`${title} sneaker`} /></Link>
+        <Link to={`/store/${url}`}><img src={image.data.attributes.formats.medium.url} alt={`${title} sneaker`} /></Link>
         <p className='description '>{description}</p>
         <div className="price-product ">{price} €</div>
-        <Link to={`/sneakers/${url}`} className='linkToProduct'>Shop now</Link>
+        <Link to={`/store/${url}`} className='linkTo'>Shop now</Link>
         </div>
     </div>
   )
