@@ -9,3 +9,8 @@ export async function getSneakerByURL(url){
     const result = await response.json()
     return result;
 }
+export async function getSneakersOnSale(){
+    const response = await fetch(`${process.env.API_URL}sneakers/?filters[onSale]=true&populate=image`)
+    const result = await response.json()
+    return result;
+}

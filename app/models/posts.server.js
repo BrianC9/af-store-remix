@@ -8,3 +8,8 @@ export async function getPostByURL(url){
     const result = await response.json()
     return result;
 }
+export async function getLastTwoPosts(){
+    const response = await fetch(`${process.env.API_URL}posts?sort=createdAt:DESC&pagination[limit]=2`)
+    const result = await response.json()
+    return result;
+}
