@@ -20,7 +20,8 @@ export async function loader({params}){
       title: 'Sneaker not found',
       description: 'Sneakers on sale, model not found'
     }
-  }  const {title} = data.data[0].attributes
+  }  
+  const {title} = data.data[0].attributes
   
  return{
   title: `AF Store - ${title}`,

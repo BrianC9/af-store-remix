@@ -24,6 +24,20 @@
     overflow: hidden;
 
 }
+.textPost{
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 0 1rem;
+}
+.indPost img{
+    max-height: 50rem;
+    width: auto;
+    object-fit: cover
+}
+.indPost .content{
+    display: flex;
+    flex-direction: column;
+}
 @media (min-width:768px) {
     
     .blog{
