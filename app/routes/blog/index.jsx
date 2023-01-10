@@ -1,7 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import Post from "~/components/post";
 import { getAllPosts } from "~/models/posts.server"
-import styles from '~/styles/posts.css'
 export async function loader(){
   const posts = await getAllPosts()
   return posts;
@@ -9,7 +8,7 @@ export async function loader(){
 export default function Blog() {
   const posts = useLoaderData()
   return (
-    <main className="container ">
+    <div className="container ">
       <h2 className="heading">AF Blog</h2>
       <div className="blog">
         {
@@ -18,17 +17,10 @@ export default function Blog() {
           ))
         }
       </div>
-    </main>
+    </div>
     )
 } 
-export function links(){
-  return [
-    {
-      rel:'stylesheet',
-      href:styles
-    }
-  ]
-}
+
 export function meta(){
   return{
     title: 'Blog',

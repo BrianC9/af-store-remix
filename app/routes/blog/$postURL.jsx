@@ -1,6 +1,5 @@
 import { useLoaderData } from "@remix-run/react"
 import { getPostByURL } from "../../models/posts.server"
-import styles  from "~/styles/posts.css"
 export async function loader({params}){
     const {postURL} = params
     const post = await getPostByURL(postURL)
@@ -12,14 +11,7 @@ export async function loader({params}){
       }
     return post
 }
-export function links(){
-  return [
-    { 
-      rel: 'stylesheet',
-      href: styles
-  }
-  ]
-}
+
 export function meta({data}){
   if(!data){
     return{
@@ -42,17 +34,18 @@ export default function PostURL() {
        return resultText 
     }
   return (
-    <main className="container indPost ">
+    <article className="container indPost ">
         <h3 className="heading">{title}</h3>
         <p>{new Date(publishedAt).toLocaleDateString()}</p>
-        <div className="content">
         <img className="coverPost" src={post.data[0].attributes.image.data[0].attributes.formats.large.url} alt={`cover for the ${title} post `} />
+
+        <div className="content">
         <div className="textPost">
         {formatedText(content).map((text,idx)=>(
             <p key={idx}>{text}</p>
         ))}
         </div>
         </div>
-    </main>
+    </article>
   )
 }

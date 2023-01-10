@@ -24,7 +24,7 @@ export function links(){
 export default function Store() {
   const sneakers = useLoaderData()
   return (
-    <main className="container main-container">
+    <div className="container main-container">
       <h2 className="heading">Our Collection</h2>
       {
         sneakers?.length &&(
@@ -36,7 +36,7 @@ export default function Store() {
           
         )
       }
-    </main>
+    </div>
   )
 }
 

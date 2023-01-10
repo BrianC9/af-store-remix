@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 
 export default function Post({post}) {
   console.log(post)
-    const {title,publishedAt,content,url,image}=post.attributes
+    const {title,publishedAt,content,url}=post.attributes
     console.log()
     const calculateTimeReading = (text)=>{
       return Math.ceil(text.split(' ').length / 200)
