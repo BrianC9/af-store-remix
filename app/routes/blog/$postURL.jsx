@@ -10,7 +10,6 @@ export async function loader({params}){
           statusText:'Post not found'
         })
       }
-    console.log()
     return post
 }
 export function links(){
@@ -29,7 +28,6 @@ export function meta({data}){
     }
   } 
   const {title} = data.data[0].attributes
-console.log(title)
   return{
     title: `${title}`,
     description: `AF Blog - ${title}`

@@ -47,6 +47,7 @@ export default function Sneaker() {
     <div className="container details-sneaker main-container">
         <div className="content">
         <h3>{title}</h3>
+        <img src={image.data.attributes.url}alt={`Sneaker ${title}`}/>
         <p>{description}</p>
         <p className="price-product">{price} €</p>
         <div className="select">
@@ -57,7 +58,7 @@ export default function Sneaker() {
         </div>
         <Link className="linkTo">Add to cart</Link>
         </div>
-        <img src={image.data.attributes.url}alt={`Sneaker ${title}`}/>
+        
 
     </div>
 
