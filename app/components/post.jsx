@@ -2,9 +2,10 @@ import { Link } from "@remix-run/react";
 
 export default function Post({post}) {
   console.log(post)
-    const {title,publishedAt,content,url}=post.attributes
+    const {title,publishedAt,content,url,image}=post.attributes
+    console.log()
     const calculateTimeReading = (text)=>{
-      return Math.ceil(content.split(' ').length / 200)
+      return Math.ceil(text.split(' ').length / 200)
     }
   return (
     
@@ -16,7 +17,7 @@ export default function Post({post}) {
             <p title="Calculated by the 200 words average rule" className="time">~ {calculateTimeReading(content)} min read</p>
             </div>
             <p className="summaryPost">{content}</p>
-            <img className="img-post" src={post?.attributes.image.data[0].attributes.formats.medium.url} alt={`Cover for the post titled ${title}`}/>
+            <Link  to={`/blog/${url}`}><img className="img-post" src={post?.attributes.image.data[0].attributes.formats.large.url} alt={`Cover for the post titled ${title}`}/></Link>
             <Link className="linkTo" to={`/blog/${url}`}>Read post</Link>
 
         </div>

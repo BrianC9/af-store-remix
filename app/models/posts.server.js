@@ -9,7 +9,7 @@ export async function getPostByURL(url){
     return result;
 }
 export async function getLastTwoPosts(){
-    const response = await fetch(`${process.env.API_URL}posts?sort=createdAt:DESC&pagination[limit]=2`)
+    const response = await fetch(`${process.env.API_URL}posts?sort=createdAt:DESC&pagination[limit]=2&populate=image`)
     const result = await response.json()
     return result;
 }

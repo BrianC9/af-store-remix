@@ -5,6 +5,7 @@ import { getLastTwoPosts } from "~/models/posts.server"
 import { getSneakersOnSale } from "~/models/sneakers.server"
 import styles from '~/styles/home.css'
 import stylesStore from '~/styles/store.css'
+import stylePosts from '~/styles/posts.css'
 import Course from '~/components/course'
 import Post from "~/components/post"
 export async function loader(){
@@ -41,6 +42,10 @@ export function links(){
     {
       rel:'stylesheet',
       href:stylesStore
+    },
+    {
+      rel:'stylesheet',
+      href:stylePosts
     }
   ]
 }
@@ -58,9 +63,12 @@ export default function Index() {
       </section>
       <Course course = {data.course.data} />
       <section className="container latests-posts">
-      {data.posts?.data.map(post => (
+        <h2 className="heading">Latests posts</h2>
+        <div className="posts-grid">
+          {data.posts?.data.map(post => (
           <Post className="posts-home" key={post.id} post={post}/>
-        ))}
+          ))}
+        </div>
       </section>
     </>
   )

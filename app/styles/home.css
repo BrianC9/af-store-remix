@@ -1,3 +1,4 @@
+/*** SNEAKERS-ON-SALE **/
 .sneakers-sale .sneakers-grid{
     display: grid;
     grid-template-columns: 1fr;
@@ -14,6 +15,7 @@
         grid-template-columns: repeat(3,1fr);
     }
 }
+/*** COURSE **/
 .course-grid .content{
     color: var(--white);
     display: flex;
@@ -34,6 +36,18 @@
 .course-grid .content button:hover{
     background-color: var(--primary);
 
+}
+
+/*** LATEST-POSTS **/
+.posts-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+@media (min-width:768px){
+    .posts-grid{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
 }
 
 

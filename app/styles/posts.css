@@ -7,6 +7,10 @@
 
 .post .content h3{
     margin:0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 .post .details{
     color: var(--primary);
@@ -24,11 +28,19 @@
     overflow: hidden;
 
 }
-.textPost{
+.textPost, .summaryPost{
     text-align: justify;
     text-justify: inter-word;
-    padding: 0 1rem;
 }
+.post .content img{
+    aspect-ratio: 2/1;
+    object-fit: cover;
+    max-height: 20rem;
+    width: auto;
+    display: block;
+    margin: 2rem auto;
+}
+
 .indPost img{
     max-height: 50rem;
     width: auto;
