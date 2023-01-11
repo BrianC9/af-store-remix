@@ -2,7 +2,7 @@
 .sneakers-sale .sneakers-grid{
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
 }
 .course{
     background-position: center center;
