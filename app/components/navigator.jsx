@@ -1,4 +1,5 @@
 import { Link,useLocation } from "react-router-dom"
+import cartImg from '../../public/img/cart.png'
 export default function Navigator() {
   const location = useLocation()
 
@@ -16,6 +17,11 @@ export default function Navigator() {
     <Link 
     to="/store"
     className={location === '/store' ? 'active':''}>Store</Link>
+    <Link 
+    to="/cart"
+    >
+      <img src={cartImg} alt="cart icon" />
+    </Link>
 </nav>
   )
 }

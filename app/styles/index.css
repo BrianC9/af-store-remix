@@ -67,9 +67,14 @@
 
 .header .navegation {
   display: flex;
+  align-items: center;
   gap: 2rem;
   margin-top: 2rem;
 }
+.header .navegation img{
+  width: 3rem;
+}
+
 .header .navegation a{
   color: var(--white);
   text-decoration: none;
@@ -130,8 +135,12 @@
   font-weight: 700;
   padding: .5rem 1rem;
 }
+
 .footer .navegation a:hover{
   background-color: var(--white);
+}
+.footer .navegation a:last-of-type{
+  display: none;
 }
 @media(min-width:768px){
   .footer .navegation{
