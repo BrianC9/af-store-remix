@@ -16,7 +16,7 @@ export function meta(){
     }
 }
 export default function Cart() {
-    const {orders} = useOutletContext()
+    const {orders,clearCart} = useOutletContext()
     console.log(orders)
   return (
     <main className='container'>
@@ -31,7 +31,9 @@ export default function Cart() {
                 )):
                 <p>There are no sneakers on the cart</p>
                 }
+                <button onClick={()=>{clearCart()}}>Clear cart</button>
             </div>
+            
             <aside className='details'>
                 <h2>Order details</h2>
                 <p>Order total: €</p>

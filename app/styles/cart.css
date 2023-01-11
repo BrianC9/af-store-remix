@@ -12,8 +12,26 @@
     padding: 3rem;
 }
 
-.details{
+ .details{
     background-color: #f9fafb;
     padding: 3rem;
     border-radius: 1rem;
+    position: sticky;
+    top: 4rem;
+}
+
+/*** CART SNEAKER **/
+.sneaker-cart{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 3rem 0;
+    border-bottom: 1px solid #cfcfcf ;
+}
+.sneaker-cart:last-of-type{
+    border: none;
+}
+.details-order p{
+    margin: 0 0 1rem 0
 }

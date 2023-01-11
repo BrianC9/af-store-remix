@@ -2,7 +2,7 @@ import {Meta, Links, Outlet, Scripts, LiveReload, useCatch, Link} from '@remix-r
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
 import Footer from './components/footer'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 export function meta(){
     return(
         {
@@ -40,6 +40,21 @@ export function links(){
 }
 export default function App(){
     const [orders,setOrders] = useState([])
+
+    useEffect(() => {
+        const readLs = () => {
+          const check = JSON.parse(localStorage.getItem('cart')) ?? [];
+          setOrders(check);
+        };
+        readLs();
+      }, []);
+    
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(orders));
+      }, [orders]);
+      
+    const clearCart = ()=>{
+        setOrders([])}
     const addToCart = (sneakerOrdered) =>{
         if (orders.some(sneakerIter => (sneakerIter.id === sneakerOrdered.id && sneakerIter.size === sneakerOrdered.size))){
             const updatedCart = orders.map((sneakerIter) => {
@@ -59,7 +74,7 @@ export default function App(){
         <Document>
             <Outlet
                 context={
-                    {addToCart,orders}
+                    {addToCart,orders,clearCart}
                 }
             />
         </Document>
