@@ -1,6 +1,7 @@
 import cartStyles from '~/styles/cart.css'
 import { useOutletContext } from '@remix-run/react'
 import CartSneaker from '~/components/cartSneaker'
+import { Link } from '@remix-run/react'
 export function links(){
     return[
         {
@@ -24,14 +25,18 @@ export default function Cart() {
         <div className="content">
             <div className="cart">
                 <h2>Products</h2>
-                {orders.length > 0 ?
+                {orders.length > 0 ? 
                 orders.map(sneaker => (
-
                 <CartSneaker key={`${sneaker.id}+${Math.floor(Math.random()*1_000_000)}`} sneaker={sneaker}/>
-                )):
+                ))
+                :
+                <>
                 <p>There are no sneakers on the cart</p>
+                <Link to={'/store'}>Go to store</Link>
+                </>
                 }
-                <button onClick={()=>{clearCart()}}>Clear cart</button>
+                {orders.length > 0 &&   <button onClick={()=>{clearCart()}}>Clear cart</button>
+}
             </div>
             
             <aside className='details'>

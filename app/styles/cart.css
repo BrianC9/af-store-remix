@@ -1,5 +1,6 @@
 .content{
     display: grid;
+    align-items: flex-start;
     gap:5rem
 }
 @media(min-width:768px){
@@ -23,7 +24,7 @@
 /*** CART SNEAKER **/
 .sneaker-cart{
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 3fr 2fr;
     gap: 4rem;
     align-items: center;
     padding: 3rem 0;
@@ -34,4 +35,23 @@
 }
 .details-order p{
     margin: 0 0 1rem 0
+}
+.details-order h3{
+    font-size: 3rem;
+    font-weight: 900;
+}
+.sneaker-cart img{
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+
+}
+.details-order .quantity,.details-order .size{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin: 1rem 0;
+} 
+.details-order .select-cart{
+    display: block;
 }

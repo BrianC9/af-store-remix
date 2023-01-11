@@ -48,7 +48,7 @@ export default function Sneaker() {
   const {addToCart} = useOutletContext()
   const sneaker = useLoaderData()
   const sizes = [37,40,41,42,43,44,45,46]
-  const {title,description,price,image} = sneaker.data[0].attributes
+  const {title,description,price,image,url} = sneaker.data[0].attributes
   const handleChange = (e) =>{
    const{id,value} =e.target    
     setOrderDetails({...orderDetails,[id]:+value})
@@ -57,12 +57,13 @@ export default function Sneaker() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     const orderSelected = {
-      id:sneaker.data[0].id,
+      id:sneaker.data[0].id+orderDetails.size,
       title,
       image:image.data.attributes.url,
       price,
       quantity:orderDetails.quantity,
-      size:orderDetails.size
+      size:orderDetails.size,
+      url
     }
     addToCart(orderSelected)
     setOrderDetails({
