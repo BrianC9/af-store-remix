@@ -41,19 +41,53 @@
 
 
 /*** Dinamic Sneaker**/
-.details-sneaker .select{
+.details-sneaker .description{
+    text-align: justify;
+    text-justify: inter-word;
+}
+.details-sneaker .select, .details-sneaker .quantity{
     display: flex;
+    align-items: center;
     gap:2rem;
     margin: 2rem 0;
 }
+.details-sneaker .select label, .details-sneaker .quantity label{
+    font-size: 2.2rem;
+}
+.details-sneaker .select select, .details-sneaker .quantity select{
+    padding: .5rem;
+    border-radius: 1rem;
+    cursor: pointer;
 
+}
+.cart-form input[type="submit"]{
+    background-color: var(--black);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1rem 2.4rem ;
+    color: var(--white);
+    border: 0;
+    margin-top: 1rem;
+    transition: background-color .3s;
+    
+}
 
+.cart-form input[type="submit"]:hover{
+    background-color: var(--primary);
+    cursor: pointer;
+
+}
+
+.content{
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+}
 @media (min-width:768px){
 
-    .details-sneaker{
+    .content{
         display: grid;
-        grid-template-columns: 3fr 2fr;
-        gap: 2rem;
+        grid-template-columns: 2fr 3fr;
         align-items: center;
     }
 }

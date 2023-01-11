@@ -39,24 +39,41 @@ export function links(){
 
 }
 export default function Sneaker() {
+  const sneaker = useLoaderData()
+    
     const sizes = [37,40,41,42,43,44,45,46]
     
-    const sneaker = useLoaderData()
     const {title,description,price,image} = sneaker.data[0].attributes
   return (
-    <div className="container details-sneaker main-container">
+    <div className="container main-container">
         <div className="content">
-        <h3>{title}</h3>
-        <img src={image.data.attributes.url}alt={`Sneaker ${title}`}/>
-        <p>{description}</p>
-        <p className="price-product">{price} €</p>
-        <div className="select">
-        <label htmlFor="size-sneaker">Choose a size</label>
-        <select>
-          {sizes.map(sizeIt => (<option key={sizeIt} value={sizeIt}>{sizeIt}</option>))}
-        </select>
-        </div>
-        <Link className="linkTo">Add to cart</Link>
+          <img src={image.data.attributes.url}alt={`Sneaker ${title}`}/>
+          <div className="details-sneaker">
+            <h3>{title}</h3>
+            <p className="description">{description}</p>
+            <p className="price-product">{price} €</p>
+            <form className="cart-form">
+              <div className="select">
+                <label htmlFor="size-sneaker">Choose a size</label>
+                <select required={true}>
+                  <option value="">Size</option>
+
+                  {sizes.map(sizeIt => (<option key={sizeIt} value={sizeIt}>{sizeIt}</option>))}
+                </select>
+              </div>
+              <div className="quantity">
+                <label htmlFor="quantity">Quantity</label>
+                <select required={true}>
+                  <option value="">Quantity</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+              </div>
+              <input type="submit" value="Add to cart" />
+            </form>
+            
+          </div>
         </div>
         
 
