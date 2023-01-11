@@ -1,19 +1,20 @@
-import { useLoaderData } from "@remix-run/react" 
+import { useLoaderData, useOutletContext } from "@remix-run/react" 
 import { useState } from "react"
-import { Link } from "react-router-dom"
 import { getSneakerByURL } from "~/models/sneakers.server"
 import styles from '~/styles/store.css'
 
 export async function loader({params}){
-    const {sneakerURL} = params
-    const sneaker = await getSneakerByURL(sneakerURL)
-    if (!sneaker || sneaker.data.length === 0){
-      throw new Response('',{
-        status:404,
-        statusText:'Sneaker not found'
-      })
-    }
-    return sneaker
+  const {sneakerURL} = params
+  const sneaker = await getSneakerByURL(sneakerURL)
+
+  if (!sneaker || sneaker.data.length === 0){
+    throw new Response('',{
+      status:404,
+      statusText:'Sneaker not found'
+    })
+  }
+
+  return sneaker
  }
  export function meta({data}){
   if(!data){
@@ -40,30 +41,30 @@ export function links(){
 
 }
 export default function Sneaker() {
-  const [order,setOrder] = useState({
+  const [orderDetails,setOrderDetails] = useState({
     quantity:0,
     size:0
   })
-
+  const [orders,setOrders] = useOutletContext()
   const sneaker = useLoaderData()
   const sizes = [37,40,41,42,43,44,45,46]
   const {title,description,price,image} = sneaker.data[0].attributes
   const handleChange = (e) =>{
    const{id,value} =e.target    
-    setOrder({...order,[id]:+value})
+    setOrderDetails({...orderDetails,[id]:+value})
   }
 
   const handleSubmit = (e)=>{
     e.preventDefault();
-    const orderDetails = {
+    const orderSelected = {
       id:sneaker.data[0].id,
       title,
       image:image.data.attributes.url,
       price,
-      quantity:order.quantity,
-      size:order.size
+      quantity:orderDetails.quantity,
+      size:orderDetails.size
     }
-    console.log(orderDetails);
+    setOrders(old => [...old,orderSelected])
 
   }
     

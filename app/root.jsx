@@ -2,6 +2,7 @@ import {Meta, Links, Outlet, Scripts, LiveReload, useCatch, Link} from '@remix-r
 import styles from '~/styles/index.css'
 import Header from '~/components/header'
 import Footer from './components/footer'
+import { useState } from 'react'
 export function meta(){
     return(
         {
@@ -38,9 +39,14 @@ export function links(){
 
 }
 export default function App(){
+    const [orders,setOrders] = useState([])
     return(
         <Document>
-            <Outlet/>
+            <Outlet
+                context={
+                    [orders,setOrders]
+                }
+            />
         </Document>
     )
 }
