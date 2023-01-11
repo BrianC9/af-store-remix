@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function CartSneaker({sneaker}) {
-    const {title} =sneaker
+    const {title,quantity,size} =sneaker
   return (
-    <div>{title}</div>
+    <div>{title} - {size} - {quantity} </div>
   )
 }

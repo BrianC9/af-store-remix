@@ -40,11 +40,26 @@ export function links(){
 }
 export default function App(){
     const [orders,setOrders] = useState([])
+    const addToCart = (sneakerOrdered) =>{
+        if (orders.some(sneakerIter => (sneakerIter.id === sneakerOrdered.id && sneakerIter.size === sneakerOrdered.size))){
+            const updatedCart = orders.map((sneakerIter) => {
+                if (sneakerIter.id === sneakerOrdered.id && sneakerIter.size === sneakerOrdered.size){
+                    sneakerIter.quantity = sneakerOrdered.quantity
+                }
+                return sneakerIter
+            } )
+            
+            setOrders(updatedCart)
+        }else{
+
+            setOrders([...orders,sneakerOrdered])
+        }
+    }
     return(
         <Document>
             <Outlet
                 context={
-                    [orders,setOrders]
+                    {addToCart,orders}
                 }
             />
         </Document>

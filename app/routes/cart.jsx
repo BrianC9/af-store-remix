@@ -16,7 +16,7 @@ export function meta(){
     }
 }
 export default function Cart() {
-    const [orders] = useOutletContext()
+    const {orders} = useOutletContext()
     console.log(orders)
   return (
     <main className='container'>
@@ -27,7 +27,7 @@ export default function Cart() {
                 {orders.length > 0 ?
                 orders.map(sneaker => (
 
-                <CartSneaker key={sneaker.id} sneaker={sneaker}/>
+                <CartSneaker key={`${sneaker.id}+${Math.floor(Math.random()*1_000_000)}`} sneaker={sneaker}/>
                 )):
                 <p>There are no sneakers on the cart</p>
                 }

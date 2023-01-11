@@ -45,7 +45,7 @@ export default function Sneaker() {
     quantity:0,
     size:0
   })
-  const [orders,setOrders] = useOutletContext()
+  const {addToCart} = useOutletContext()
   const sneaker = useLoaderData()
   const sizes = [37,40,41,42,43,44,45,46]
   const {title,description,price,image} = sneaker.data[0].attributes
@@ -64,7 +64,12 @@ export default function Sneaker() {
       quantity:orderDetails.quantity,
       size:orderDetails.size
     }
-    setOrders(old => [...old,orderSelected])
+    addToCart(orderSelected)
+    setOrderDetails({
+      quantity:0,
+      size:0
+    })
+    
 
   }
     
@@ -83,6 +88,7 @@ export default function Sneaker() {
                 <select 
                   required={true}
                   id='size'
+                  value={orderDetails.size}
                   onChange={handleChange}
                 >
                   <option value="">Size</option>
@@ -94,6 +100,7 @@ export default function Sneaker() {
                 <label htmlFor="quantity">Quantity</label>
                 <select 
                   onChange={handleChange}
+                  value={orderDetails.quantity}
                   required={true}
                   id='quantity'
                 >

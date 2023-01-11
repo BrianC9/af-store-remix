@@ -72,7 +72,7 @@
   margin-top: 2rem;
 }
 .header .navegation img{
-  width: 3rem;
+  width: 2.5rem;
 }
 
 .header .navegation a{
@@ -82,6 +82,7 @@
   font-weight: 900;
   padding: .5rem;
   font-size: 1.2rem;
+  text-align: center;
 }
 .header .navegation a:hover{
   background-color: var(--primary);
