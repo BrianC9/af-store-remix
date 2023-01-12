@@ -41,24 +41,13 @@ export function links(){
 export default function App(){
     const [orders,setOrders] = useState([])
 
-    useEffect(() => {
-        const readLs = () => {
-          const check = JSON.parse(localStorage.getItem('cart')) ?? [];
-          setOrders(check);
-        };
-        readLs();
-      }, []);
-    
-    useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(orders));
-      }, [orders]);
-      
     const clearCart = ()=>{
         setOrders([])}
+
     const addToCart = (sneakerOrdered) =>{
-        if (orders.some(sneakerIter => (sneakerIter.id === sneakerOrdered.id && sneakerIter.size === sneakerOrdered.size))){
+        if (orders.some(sneakerIter => (sneakerIter.id === sneakerOrdered.id ))){
             const updatedCart = orders.map((sneakerIter) => {
-                if (sneakerIter.id === sneakerOrdered.id && sneakerIter.size === sneakerOrdered.size){
+                if (sneakerIter.id === sneakerOrdered.id ){
                     sneakerIter.quantity = sneakerOrdered.quantity
                 }
                 return sneakerIter
@@ -70,11 +59,30 @@ export default function App(){
             setOrders([...orders,sneakerOrdered])
         }
     }
+
+    const updateQuantity = sneakerOrdered =>{
+        
+        const updatedCart = orders.map((sneakerIter) => {
+                if (sneakerIter.id === sneakerOrdered.id ){
+                    sneakerIter.quantity = sneakerOrdered.quantity
+                }
+                return sneakerIter
+            } )
+            
+            setOrders(updatedCart)
+    }
+
+    const deleteFromCart = sneakerOrderedId =>{
+        const updatedCart = orders.filter((sneakerIter) => sneakerIter.id !== sneakerOrderedId)
+        
+        setOrders(updatedCart)
+    }
+
     return(
         <Document>
             <Outlet
                 context={
-                    {addToCart,orders,clearCart}
+                    {addToCart,orders,clearCart,updateQuantity,deleteFromCart}
                 }
             />
         </Document>

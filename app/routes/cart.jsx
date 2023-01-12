@@ -2,6 +2,7 @@ import cartStyles from '~/styles/cart.css'
 import { useOutletContext } from '@remix-run/react'
 import CartSneaker from '~/components/cartSneaker'
 import { Link } from '@remix-run/react'
+import { useEffect, useState } from 'react'
 export function links(){
     return[
         {
@@ -17,8 +18,14 @@ export function meta(){
     }
 }
 export default function Cart() {
+    const [total, setTotal] = useState(0)
     const {orders,clearCart} = useOutletContext()
-    console.log(orders)
+
+    useEffect(()=>{
+        const totalCalculated = orders.reduce((totalAc, sneakerIter)=> totalAc + (sneakerIter.quantity * sneakerIter.price), 0)
+        setTotal(totalCalculated)
+        },[orders])
+
   return (
     <main className='container'>
         <h1 className='heading'>Shopping cart</h1>
@@ -41,7 +48,7 @@ export default function Cart() {
             
             <aside className='details'>
                 <h2>Order details</h2>
-                <p>Order total: €</p>
+                <p>Order total: {total} €</p>
             </aside>
         </div>
     </main>

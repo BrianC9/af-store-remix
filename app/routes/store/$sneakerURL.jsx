@@ -57,7 +57,7 @@ export default function Sneaker() {
   const handleSubmit = (e)=>{
     e.preventDefault();
     const orderSelected = {
-      id:sneaker.data[0].id+orderDetails.size,
+      id:`${sneaker.data[0].id}${orderDetails.size}`,
       title,
       image:image.data.attributes.url,
       price,
