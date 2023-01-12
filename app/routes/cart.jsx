@@ -1,7 +1,6 @@
 import cartStyles from '~/styles/cart.css'
-import { useOutletContext } from '@remix-run/react'
+import { useOutletContext,Link } from '@remix-run/react'
 import CartSneaker from '~/components/cartSneaker'
-import { Link } from '@remix-run/react'
 import { useEffect, useState } from 'react'
 export function links(){
     return[
@@ -20,7 +19,7 @@ export function meta(){
 export default function Cart() {
     const [total, setTotal] = useState(0)
     const {orders,clearCart} = useOutletContext()
-
+console.log(orders == null);
     useEffect(()=>{
         const totalCalculated = orders.reduce((totalAc, sneakerIter)=> totalAc + (sneakerIter.quantity * sneakerIter.price), 0)
         setTotal(totalCalculated)
@@ -32,18 +31,18 @@ export default function Cart() {
         <div className="content">
             <div className="cart">
                 <h2>Products</h2>
-                {orders.length > 0 ? 
-                orders.map(sneaker => (
-                <CartSneaker key={`${sneaker.id}+${Math.floor(Math.random()*1_000_000)}`} sneaker={sneaker}/>
-                ))
-                :
+                {orders?.length === 0  ? 
                 <>
                 <p>There are no sneakers on the cart</p>
                 <Link to={'/store'}>Go to store</Link>
                 </>
+                :
+                orders?.map(sneaker => (
+                    <CartSneaker key={`${sneaker.id}+${Math.floor(Math.random()*1_000_000)}`} sneaker={sneaker}/>
+                    ))
                 }
-                {orders.length > 0 &&   <button onClick={()=>{clearCart()}}>Clear cart</button>
-}
+                {orders?.length > 0 &&   <button onClick={()=>{clearCart()}}>Clear cart</button>}
+
             </div>
             
             <aside className='details'>

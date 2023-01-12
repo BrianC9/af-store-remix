@@ -39,14 +39,19 @@ export function links(){
 
 }
 export default function App(){
-    const [orders,setOrders] = useState([])
+    const ordersLS = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('orders')) ?? [] : null
+    const [orders,setOrders] = useState(ordersLS)
+
+    useEffect(()=>{
+        localStorage.setItem('orders',JSON.stringify(orders))
+    },[orders])
 
     const clearCart = ()=>{
         setOrders([])}
 
     const addToCart = (sneakerOrdered) =>{
         if (orders.some(sneakerIter => (sneakerIter.id === sneakerOrdered.id ))){
-            const updatedCart = orders.map((sneakerIter) => {
+            const updatedCart = orders?.map((sneakerIter) => {
                 if (sneakerIter.id === sneakerOrdered.id ){
                     sneakerIter.quantity = sneakerOrdered.quantity
                 }

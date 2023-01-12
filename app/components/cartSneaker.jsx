@@ -28,6 +28,8 @@ export default function CartSneaker({sneaker}) {
         <p className='price'>{price} €</p>
         <p className='subtotal'>Subtotal: {`${quantity * price} €`}</p>
         <button
+        type="button"
+        className="btn-delete-sneaker"
           onClick={(e)=>deleteFromCart(id)}
         >
           Delete Sneaker</button>

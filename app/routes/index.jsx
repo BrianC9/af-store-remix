@@ -56,7 +56,7 @@ export default function Index() {
       <section className="container sneakers-sale">
         <h2 className="heading">Sneakers on sale</h2>
         <div className="sneakers-grid">
-        {data.sneakers?.data.map(sneaker => (
+        {data.sneakers?.data?.map(sneaker => (
           <Sneaker className="sneaker-home" key={sneaker.id} sneaker={sneaker}/>
         ))}
         </div>
@@ -65,7 +65,7 @@ export default function Index() {
       <section className="container latests-posts">
         <h2 className="heading">Latests posts</h2>
         <div className="posts-grid">
-          {data.posts?.data.map(post => (
+          {data.posts?.data?.map(post => (
           <Post className="posts-home" key={post.id} post={post}/>
           ))}
         </div>
