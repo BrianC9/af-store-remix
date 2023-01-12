@@ -1,6 +1,7 @@
-import { useLoaderData, useOutletContext } from "@remix-run/react" 
+import { Link, useLoaderData, useOutletContext } from "@remix-run/react" 
 import { useState } from "react"
 import { getSneakerByURL } from "~/models/sneakers.server"
+import successIcon from '../../../public/img/success.svg'
 import styles from '~/styles/store.css'
 
 export async function loader({params}){
@@ -45,6 +46,7 @@ export default function Sneaker() {
     quantity:0,
     size:0
   })
+  const [alertVisible, setAlertVisible] = useState(false)
   const {addToCart} = useOutletContext()
   const sneaker = useLoaderData()
   const sizes = [37,40,41,42,43,44,45,46]
@@ -54,6 +56,13 @@ export default function Sneaker() {
     setOrderDetails({...orderDetails,[id]:+value})
   }
 
+  const handleAlertVisiblity = ()=>{
+    setAlertVisible(true)
+    setTimeout(() => {
+      setAlertVisible(false);
+ }, 3000);
+
+  }
   const handleSubmit = (e)=>{
     e.preventDefault();
     const orderSelected = {
@@ -65,7 +74,10 @@ export default function Sneaker() {
       size:orderDetails.size,
       url
     }
-    addToCart(orderSelected)
+    if(addToCart(orderSelected)){
+      handleAlertVisiblity()
+     
+    }
     setOrderDetails({
       quantity:0,
       size:0
@@ -111,6 +123,16 @@ export default function Sneaker() {
                   <option value="3">3</option>
                 </select>
               </div>
+              {alertVisible && (
+                <div className="alert-added ">
+                
+                  <img src={successIcon} alt="icon success on green" />
+                  <div className="text">
+                  <p>Added to the cart</p>
+                  <Link to={'/cart'}>Go to checkout</Link>
+                </div>
+              </div>
+              )}
               <input type="submit" value="Add to cart" />
             </form>
             

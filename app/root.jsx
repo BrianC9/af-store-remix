@@ -63,6 +63,7 @@ export default function App(){
 
             setOrders([...orders,sneakerOrdered])
         }
+        return true
     }
 
     const updateQuantity = sneakerOrdered =>{
