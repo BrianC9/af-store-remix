@@ -2,6 +2,7 @@ import cartStyles from '~/styles/cart.css'
 import { useOutletContext,Link } from '@remix-run/react'
 import CartSneaker from '~/components/cartSneaker'
 import { useEffect, useState } from 'react'
+import {ClientOnly} from 'remix-utils'
 export function links(){
     return[
         {
@@ -19,13 +20,14 @@ export function meta(){
 export default function Cart() {
     const [total, setTotal] = useState(0)
     const {orders,clearCart} = useOutletContext()
-console.log(orders == null);
+    
     useEffect(()=>{
         const totalCalculated = orders.reduce((totalAc, sneakerIter)=> totalAc + (sneakerIter.quantity * sneakerIter.price), 0)
         setTotal(totalCalculated)
         },[orders])
 
   return (
+    <ClientOnly fallback={'Loading cart...'}>{()=>(
     <main className='container'>
         <h1 className='heading'>Shopping cart</h1>
         <div className="content">
@@ -51,5 +53,6 @@ console.log(orders == null);
             </aside>
         </div>
     </main>
+    )}</ClientOnly>
   )
 }
