@@ -8,7 +8,6 @@ module.exports = {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   cacheDirectory: './node_modules/.cache/remix',
-
   future: {},
 
 };
